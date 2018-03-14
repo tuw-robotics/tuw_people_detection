@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="leg_detector" type="leg_detector" name="leg_detector" args="scan:=p3dx/laser_front_right/scan $(find leg_detector)/config/trained_leg_detector.yaml" output="screen">
+    <param name="fixed_frame" type="string" value="/p3dx/base_link" />
+  </node>
+</launch>

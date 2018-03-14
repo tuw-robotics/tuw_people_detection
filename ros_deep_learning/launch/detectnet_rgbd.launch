@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="image" default="/zed/rgb/image_rect_color"/>
+  <arg name="depth" default="/zed/depth/depth_registered"/>
+  <arg name="camera_info_depth" default="/zed/depth/camera_info"/>
+  <arg name="camera_info_color" default="/zed/rgb/camera_info"/>    
+  <arg name="robot_name" default="p3dx"/>
+
+  <group ns="$(arg robot_name)">
+    <!-- set parameters -->
+    <rosparam  file="$(find ros_deep_learning)/config/paths_detectnet.yaml" command="load"/>
+
+    <!-- Nodelet manager -->
+    <node pkg="nodelet" type="nodelet" name="detectnet_manager"  args="manager" output="screen"/>
+
+    <!-- ros_imagenet nodelet -->
+    <node name="detectnet_node"
+      pkg="nodelet" type="nodelet"
+      args="load ros_deep_learning/ros_detectnet_rgbd detectnet_manager"
+      output="screen" >
+      <remap from="image_color" to="$(arg image)"/>
+      <remap from="image_depth" to="$(arg depth)"/>
+      <remap from="camera_info_color" to="$(arg camera_info_color)"/>
+      <remap from="camera_info_depth" to="$(arg camera_info_depth)"/>
+    </node>
+  </group>
+</launch>

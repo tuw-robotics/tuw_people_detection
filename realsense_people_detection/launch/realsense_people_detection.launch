@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+  
+  <arg name="camera_info_color" default="/p3dx/camera/color/camera_info"/>
+  <arg name="camera_info_depth" default="/p3dx/camera/depth/camera_info"/>
+  <arg name="image_color" default="/p3dx/camera/color/image_raw"/>
+  <arg name="image_depth" default="/p3dx/camera/depth/image_raw"/>
+  <arg name="image_out" default="image_out"/>
+  <arg name="detected_persons_tuw" default="detected_persons_tuw"/>
+  
+  <node pkg="realsense_people_detection" type="realsense_people_detection_node" name="realsense_people_detection_node" output="screen">
+    <remap from="camera_info_color" to="$(arg camera_info_color)"/>
+    <remap from="camera_info_depth" to="$(arg camera_info_depth)"/>
+    <remap from="image_color" to="$(arg image_color)"/>
+    <remap from="image_depth" to="$(arg image_depth)"/>
+    <remap from="image_out" to="$(arg image_out)"/>
+    <remap from="detected_persons_tuw" to="$(arg detected_persons_tuw)"/>
+  </node>
+</launch>

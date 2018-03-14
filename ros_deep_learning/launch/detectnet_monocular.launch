@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="image" default="/p3dx/camera/color/image_raw"/>
+  <arg name="ground_plane" default="/p3dx/camera/ground_plane"/>
+  <arg name="robot_name" default="p3dx"/>
+
+  <group ns="$(arg robot_name)">
+    <!-- set parameters -->
+    <rosparam  file="$(find ros_deep_learning)/config/paths_detectnet.yaml" command="load"/>
+
+    <!-- Nodelet manager -->
+    <node pkg="nodelet" type="nodelet" name="detectnet_manager"  args="manager" output="screen"/>
+
+    <!-- ros_imagenet nodelet -->
+    <node name="detectnet_node"
+      pkg="nodelet" type="nodelet"
+      args="load ros_deep_learning/ros_detectnet_monocular detectnet_manager"
+      output="screen" >
+      <remap from="~imin" to="$(arg image)"/>
+      <remap from="~ground_plane" to="$(arg ground_plane)"/>
+    </node>
+  </group>
+</launch>

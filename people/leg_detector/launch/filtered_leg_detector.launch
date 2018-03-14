@@ -1,0 +1,8 @@
+<launch>
+	<include file="$(find map_laser)/lfilter.launch">
+	  <param name="base_scan" type="string" value="/p3dx/laser_front/scan"/>
+	</include>
+	<node pkg="leg_detector" type="leg_detector" name="leg_detector" args="scan:=base_scan_filter $(find leg_detector)/config/trained_leg_detector.yaml">
+	  <param name="fixed_frame" type="string" value="/p3dx/base_link" />
+	</node>
+</launch>

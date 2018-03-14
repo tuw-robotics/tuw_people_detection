@@ -1,0 +1,3 @@
+detectnet_node:
+    prototxt_path: "/home/roblab/catkin_ws/src/tuw_people_detection/ros_deep_learning/jetson-inference/build/x86_64/bin/networks/ped-100/deploy.prototxt"
+    model_path: "/home/roblab/catkin_ws/src/tuw_people_detection/ros_deep_learning/jetson-inference/build/x86_64/bin/networks/ped-100/snapshot_iter_70800.caffemodel"
