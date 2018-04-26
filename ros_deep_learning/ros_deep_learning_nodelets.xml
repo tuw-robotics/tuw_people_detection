@@ -1,8 +1,8 @@
 <library path="lib/libros_deep_learning_nodelets">
-    <class name="ros_deep_learning/ros_imagenet" type="ros_deep_learning::ros_imagenet" base_class_type="nodelet::Nodelet">
-        <description>A node to classify images according to ILSVRC classes</description>
+    <class name="ros_deep_learning/ros_detectnet_rgbd" type="ros_deep_learning::ros_detectnet_rgbd" base_class_type="nodelet::Nodelet">
+        <description>A node to detect persons/objects in rgbd images</description>
     </class>
-    <class name="ros_deep_learning/ros_detectnet" type="ros_deep_learning::ros_detectnet" base_class_type="nodelet::Nodelet">
-        <description>A node to detect persons/objects in images</description>
+    <class name="ros_deep_learning/ros_detectnet_monocular" type="ros_deep_learning::ros_detectnet_monocular" base_class_type="nodelet::Nodelet">
+        <description>A node to detect persons/objects in monocular images</description>
     </class>
 </library>
