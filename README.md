@@ -19,6 +19,6 @@ Please refer to the individual packages regarding licenses.
   Depth based people detection for Intel RealSense Cameras
 
 * darknet_ros ([darknet_ros](https://github.com/tuw-robotics/darknet_ros)):
-  ROS interface for the YOLO object detector. The `master` branch directly uses camera depth data to obtain
-  a 3D position of the detected person. The branch `devel-gp` contains a version which relies on a ground
-  plane estimate to obtain a 3D position.
+  ROS interface for the YOLO object detector. Provides an option for monocular detection and depth estimation through
+  a TF based ground plane (at base_link) using the `rwth_ground_plane` package. If depth information from the camera
+  is available the detector can use it directly (providing `monocular:=false`.
