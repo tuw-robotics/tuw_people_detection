@@ -22,3 +22,14 @@ Please refer to the individual packages regarding licenses.
   ROS interface for the YOLO object detector. Provides an option for monocular detection and depth estimation through
   a TF based ground plane (at base_link) using the `rwth_ground_plane` package. If depth information from the camera
   is available the detector can use it directly (providing `monocular:=false`.
+
+# Dependencies
+
+apt install ros-melodic-bfl
+apt install ros-melodic-kalman-filter
+apt install ros-melodic-octomap-ros
+apt install ros-melodic-costmap-2d
+
+copy rwth_perception_people_msgs from spencer into this folder (TODO repo update)
+
+https://github.com/anybotics/grid_map
