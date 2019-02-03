@@ -23,9 +23,11 @@ Please refer to the individual packages regarding licenses.
   a TF based ground plane (at base_link) using the `rwth_ground_plane` package. If depth information from the camera
   is available the detector can use it directly (providing `monocular:=false`.
 
-# Dependencies 
+# Dependencies for melodic:
 
 `sudo -s`
+
+`apt install ros-melodic-easy-markers`
 
 `apt install ros-melodic-bfl`
 
@@ -35,7 +37,8 @@ Please refer to the individual packages regarding licenses.
 
 `apt install ros-melodic-costmap-2d`
 
-# Dependencies for melodic
-
 copy rwth_perception_people_msgs from spencer into this folder (TODO repo update)
+
 https://github.com/anybotics/grid_map <- master does not compile on melodic therefore checkout fix/melodic branch!
+
+TODO: compile twice because of people_msgs missing dependency.
